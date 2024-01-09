@@ -3,14 +3,17 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
-    <head>
+<html
+    <<head>
         <title>Register</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Stylesheet.css">
+        <script src="registerjs.js"></script>
+
     </head>
     <body>
+        
         <div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
             <img src="Images/STM.png" alt="STM" align="left" />
             <a href="index.html">Accueil</a>
@@ -46,23 +49,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="contien">
                     <label class="box">Prénom : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" />
+                    <input class="box2" placeholder=" " autocomplete="off" onblur="checkFirstName(prenom)"/>
 
-                    <label class="box">Nom : </label>
+                    <label class="box">Nom : </label> 
 
-                    <input class="box2" placeholder=" " autocomplete="off" />
+                    <input class="box2" placeholder=" " autocomplete="off" onblur="checkLastName(name)"/>
 
                     <label class="box">Email : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" />
+                    <input class="box2" placeholder=" " autocomplete="off" oninput="checkEmailConfirmation()"/>
+                    
+                    <label class="box">Date de naissance : </label>
+
+                    <input class="box2" placeholder=" " autocomplete="off" onblur="calculateAgeAndCheck()"/>
 
                     <label class="box"> Créez votre mot de passe : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" />
+                    <input class="box2" placeholder=" " autocomplete="off" oninput="checkpassword()"/>
 
                     <label class="box">Confirmez le mot de passe : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" />
+                    <input class="box2" placeholder=" " autocomplete="off" oninput="checkpassword()"/>
                 </div>
 
 
@@ -73,16 +80,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <label for="vehicle1"> Oui </label><br>
                 </form>
 
-                <p>J'ai plus de 18 ans </p>
-                <form action=" ">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"> 
-                    <label for="vehicle1"> Oui </label><br>
-                </form>
 
                 <div id="spe">
-                    <input type="submit" value="Enregistrer" class="sub" style="padding-left:20px;padding-right:20px;padding-bottom:5px;">
+                    <input type="submit" value="Enregistrer" class="sub" style="padding-left:20px;padding-right:20px;padding-bottom:5px;"/>
                 </div>
-
+ 
             </fieldset>
 
 
