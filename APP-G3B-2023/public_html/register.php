@@ -48,27 +48,94 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <div class="contien">
                         <label class="box">Prénom : </label>
 
-                        <input class="box2" type="text" name="prenom" value="" oninput="checkFirstName(prenom)"/>
+                        <input class="box2" type="text" name="prenom" value="" <?php
+                        $prenom_cookie = '';
+                        if (isset($_COOKIE['prenom'])) {
+                            $prenom_cookie = $_COOKIE['prenom'];
+                        }
+                        echo $prenom_cookie
+                        ?>oninput="checkFirstName(prenom)"/>
+                        <p class="error-message"><?php
+                            if (isset($error_prenom)) {
+                                echo $error_prenom;
+                            }
+                            ?></p>
 
                         <label class="box">Nom : </label> 
 
-                        <input class="box2" type="text" name="nom" value="" oninput="checkFirstName(nom)"/>
+                        <input class="box2" type="text" name="nom" value=""<?php
+                        $nom_cookie = '';
+                        if (isset($_COOKIE['nom'])) {
+                            $nom_cookie = $_COOKIE['nom'];
+                        }
+                        echo $nom_cookie
+                        ?> oninput="checkFirstName(nom)"/>
+                        <p class="error-message"><?php
+                            if (isset($error_nom)) {
+                                echo $error_nom;
+                            }
+                            ?></p>
 
                         <label class="box">Email : </label>
 
-                        <input class="box2" type="text" name="email" value="" oninput="checkEmail(email)"/>
+                        <input class="box2" type="text" name="email" value="" <?php
+                        $email_cookie = '';
+                        if (isset($_COOKIE['email'])) {
+                            $email_cookie = $_COOKIE['email'];
+                        }
+                        echo $email_cookie
+                        ?> oninput="checkEmail(email)"/>
+                        <p class="error-message"><?php
+                            if (isset($error_email)) {
+                                echo $error_email;
+                            }
+                            ?></p>
 
                         <label class="box">Date de naissance : </label>
 
-                        <input class="box2" type="date" name="dateNaissance" value="" onblur="calculateAgeAndCheck()"/>
+                        <input class="box2" type="date" name="dateNaissance" value="" <?php
+                        $date_cookie = '';
+                        if (isset($_COOKIE['dateNaissance'])) {
+                            $date_cookie = $_COOKIE['dateNaissance'];
+                        }
+                        echo $date_cookie
+                        ?> onblur="calculateAgeAndCheck()"/>
+                        <p class="error-message"><?php
+                            if (isset($error_dateNaissance)) {
+                                echo $error_dateNaissance;
+                            }
+                            ?></p>
 
                         <label class="box"> Créez votre mot de passe : </label>
 
-                        <input class="box2" id="password1" type="text" name="password" value="" oninput="checkpassword()"/>
+                        <input class="box2" id="password1" type="text" name="password" value=""<?php
+                        $password1_cookie = '';
+                        if (isset($_COOKIE['password1'])) {
+                            $password1_cookie = $_COOKIE['password1'];
+                        }
+                        echo $passwoed1_cookie
+                        ?>oninput="checkpassword()"/>
+
+                        <p class="error-message"><?php
+                            if (isset($error_password1)) {
+                                echo $error_password1;
+                            }
+                            ?></p> 
 
                         <label class="box">Confirmez le mot de passe : </label>
 
-                        <input class="box2" id="password2"type="text" name="passwordconfirmation" value="" oninput="checkpassword()"/>
+                        <input class="box2" id="password2"type="text" name="passwordconfirmation" value=""<?php
+                        $password2_cookie = '';
+                        if (isset($_COOKIE['password2'])) {
+                            $password2_cookie = $_COOKIE['password2'];
+                        }
+                        echo $password2_cookie
+                        ?>oninput="checkpassword()"/>
+                        <p class="error-message"><?php
+                            if (isset($error_password2)) {
+                                echo $error_password2;
+                            }
+                            ?></p>
                     </div>
 
 
