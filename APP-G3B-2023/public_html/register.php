@@ -4,7 +4,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html
-    <<head>
+    <head>
         <title>Register</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
