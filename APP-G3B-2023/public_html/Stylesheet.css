@@ -196,7 +196,7 @@ body {  /* Uniquement la police et taille des textes ici*/
 .column {
     padding-left:80px; /* à changer pour faire du responsive */
     padding-right:80px;
-    color:lightgray;
+    color:white;
 }
 
 .imgfooter {
