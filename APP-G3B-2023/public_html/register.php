@@ -9,11 +9,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Stylesheet.css">
-        <script src="registerjs.js"></script>
-
+        <script src="version2register.js"></script>
     </head>
     <body>
-        
+
         <div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
             <img src="Images/STM.png" alt="STM" align="left" />
             <a href="index.html">Accueil</a>
@@ -30,61 +29,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <h1 class="connect" style="margin-left:20px;"> Restons en contact ! </h1>
 
             <fieldset class="login2"> 
+                <form>
+                    <h2 class="title"> Création de compte </h2>
+                    <div class="letout">
+                        <label for="Title-input" >Titre
+                        </label>
 
-                <h2 class="title"> Création de compte </h2>
-                <div class="letout">
-                    <label for="Title-input" >Titre
-                    </label>
+                        <select class="form-control" id="Title-input" data-prop="Title" required="">
+                            <option value="">Selectionnez</option>
+                            <option value="M">M</option>
+                            <option value="Mme">Mme</option>
+                            <option value="Mad">Mademoiselle</option>
+                            <option value="Autre">Autre</option>
+                            <option value="Pringles">Pringles</option>
+                        </select>
 
-                    <select class="form-control" id="Title-input" data-prop="Title" required="">
-                        <option value="">Selectionnez:</option>
-                        <option value="M">M</option>
-                        <option value="Mme">Mme</option>
-                        <option value="Mad">Mademoiselle</option>
-                        <option value="Autre">Autre</option>
-                        <option value="Pringles">Pringles</option>
-                    </select>
+                    </div>
+                    <div class="contien">
+                        <label class="box">Prénom : </label>
 
-                </div>
-                <div class="contien">
-                    <label class="box">Prénom : </label>
+                        <input class="box2" type="text" name="prenom" value="" oninput="checkFirstName(prenom)"/>
 
-                    <input class="box2" placeholder=" " autocomplete="off" onblur="checkFirstName(prenom)"/>
+                        <label class="box">Nom : </label> 
 
-                    <label class="box">Nom : </label> 
+                        <input class="box2" type="text" name="nom" value="" oninput="checkFirstName(nom)"/>
 
-                    <input class="box2" placeholder=" " autocomplete="off" onblur="checkLastName(name)"/>
+                        <label class="box">Email : </label>
 
-                    <label class="box">Email : </label>
+                        <input class="box2" type="text" name="email" value="" oninput="checkEmail(email)"/>
 
-                    <input class="box2" placeholder=" " autocomplete="off" oninput="checkEmailConfirmation()"/>
-                    
-                    <label class="box">Date de naissance : </label>
+                        <label class="box">Date de naissance : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" onblur="calculateAgeAndCheck()"/>
+                        <input class="box2" type="date" name="dateNaissance" value="" onblur="calculateAgeAndCheck()"/>
 
-                    <label class="box"> Créez votre mot de passe : </label>
+                        <label class="box"> Créez votre mot de passe : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" oninput="checkpassword()"/>
+                        <input class="box2" id="password1" type="text" name="password" value="" oninput="checkpassword()"/>
 
-                    <label class="box">Confirmez le mot de passe : </label>
+                        <label class="box">Confirmez le mot de passe : </label>
 
-                    <input class="box2" placeholder=" " autocomplete="off" oninput="checkpassword()"/>
-                </div>
+                        <input class="box2" id="password2"type="text" name="passwordconfirmation" value="" oninput="checkpassword()"/>
+                    </div>
 
 
 
-                <p>J'accepte que mes donées soient récoltées: </p>
-                <form action=" ">
+                    <p>J'accepte que mes donées soient récoltées: </p>
+
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"> 
                     <label for="vehicle1"> Oui </label><br>
+
+
+
+                    <div id="spe">
+                        <input type="submit" value="Enregistrer" class="sub" style="padding-left:20px;padding-right:20px;padding-bottom:5px;"/>
+                    </div>
                 </form>
-
-
-                <div id="spe">
-                    <input type="submit" value="Enregistrer" class="sub" style="padding-left:20px;padding-right:20px;padding-bottom:5px;"/>
-                </div>
- 
             </fieldset>
 
 
