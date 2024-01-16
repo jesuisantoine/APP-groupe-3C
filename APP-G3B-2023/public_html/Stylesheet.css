@@ -203,6 +203,10 @@ body {  /* Uniquement la police et taille des textes ici*/
     margin-top: 40px;
 }
 
+.foota {
+    color: white;  
+}
+
 @media screen and (max-width:800px) { /*met le footer en colonne quand l'écran est petit*/
     .footer {
         flex-direction:column;
