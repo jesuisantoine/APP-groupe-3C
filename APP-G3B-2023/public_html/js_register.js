@@ -1,4 +1,3 @@
-
 function displayPopup() {
     var result = confirm("Votre candidature a été soumise avec succès!");
 }
@@ -14,7 +13,6 @@ function calculateAgeAndCheck() {
 
     // cacule de la majorité
     if (age >= 18) {
-        alert("Vous êtes majeur!");
         // Set the background color to green for legal age
         dobInput.style.backgroundColor = 'green';
     } else {
@@ -34,29 +32,30 @@ function checkEmail() {
     } else {
         email.style.color = '#0B0';
     }
+}
     
 // vérifie au moment de la frappe que le mail de confirmation est égal au mail initial
-function checkpasswordConfirmation() {
-    var password1 = document.getElementById('password1').value;
-    var password2 = document.getElementById('password2').value;
-    var password2Field = document.getElementById('password2');
+function checkEmailConfirmation() {
+    var email1 = document.getElementById('email1').value;
+    var email2 = document.getElementById('email2').value;
+    var email2Field = document.getElementById('email2');
 
     // Validation du format de l'email
-    var passwordFormatRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var ispasswordFormatValid = passwordFormatRegex.test(password1);
+    var emailFormatRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var isemailFormatValid = emailFormatRegex.test(email1);
 
-    if (!ispasswordFormatValid) {
-        // Le format de l'email est invalide, afficher un message et colorier en rouge
-        alert("Le format de votre mot de passe est invalide");
+    if (!isemailFormatValid) {
+        // Le format du email, afficher un message et colorier en rouge
+        alert("Le format de votre email est invalide");
         return;
     }
 
-    if (password1 === password2) {
+    if (email1 === email2) {
         // Les deux emails correspondent, colorier en vert
-        password2Field.style.color = 'green';
+        email2Field.style.color = 'green';
     } else {
         // Les deux emails ne correspondent pas, colorier en rouge
-        password2Field.style.color = 'red';
+        email2Field.style.color = 'red';
     }
 }
 
