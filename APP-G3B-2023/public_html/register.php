@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html
+<html>
     <head>
-        <title>Register</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Stylesheet.css">
-        <script src="version2register.js"></script>
+        <title>Formulaire admission</title>
+        <script src="register.js"></script>
+        <link href="Stylesheet.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
         <div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
             <img src="Images/STM.png" alt="STM" align="left" />
             <a href="index.html">Accueil</a>
@@ -29,128 +21,119 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <h1 class="connect" style="margin-left:20px;"> Restons en contact ! </h1>
 
             <fieldset class="login2"> 
-                <form>
-                    <h2 class="title"> Création de compte </h2>
-                    <div class="letout">
-                        <label for="Title-input" >Titre
-                        </label>
 
-                        <select class="form-control" id="Title-input" data-prop="Title" required="">
-                            <option value="">Selectionnez</option>
-                            <option value="M">M</option>
-                            <option value="Mme">Mme</option>
-                            <option value="Mad">Mademoiselle</option>
-                            <option value="Autre">Autre</option>
-                            <option value="Pringles">Pringles</option>
-                        </select>
+                <h2 class="title"> Création de compte </h2>
+                <div class="letout">
+                    <label for="Title-input" >Titre</label>
 
-                    </div>
+                    <select class="form-control" id="Title-input" data-prop="Title" required="">
+                        <option value="">Selectionnez:</option>
+                        <option value="M">M</option>
+                        <option value="Mme">Mme</option>
+                        <option value="Mad">Mademoiselle</option>
+                        <option value="Autre">Autre</option>
+                        <option value="Pringles">Pringles</option>
+                    </select>
+                </div>
+
+                <form method="POST" action="traitement.php" onsubmit="return window.confirm('Etes-vous sûrs de soumettre votre candidature?')">
                     <div class="contien">
-                        <label class="box">Prénom : </label>
-
-                        <input class="box2" type="text" name="prenom" value="" <?php
-                        $prenom_cookie = '';
-                        if (isset($_COOKIE['prenom'])) {
-                            $prenom_cookie = $_COOKIE['prenom'];
-                        }
-                        echo $prenom_cookie
-                        ?>oninput="checkFirstName(prenom)"/>
-                        <p class="error-message"><?php
-                            if (isset($error_prenom)) {
-                                echo $error_prenom;
-                            }
-                            ?></p>
-
-                        <label class="box">Nom : </label> 
-
-                        <input class="box2" type="text" name="nom" value=""<?php
+                        <label class="box">Nom</label>
+                        <input class="box2" type="text" name="nom" value="<?php
                         $nom_cookie = '';
                         if (isset($_COOKIE['nom'])) {
                             $nom_cookie = $_COOKIE['nom'];
                         }
                         echo $nom_cookie
-                        ?> oninput="checkFirstName(nom)"/>
+                        ?>" onblur="checkFirstName(nom)">
+
                         <p class="error-message"><?php
                             if (isset($error_nom)) {
                                 echo $error_nom;
                             }
                             ?></p>
 
-                        <label class="box">Email : </label>
-
-                        <input class="box2" type="text" name="email" value="" <?php
-                        $email_cookie = '';
-                        if (isset($_COOKIE['email'])) {
-                            $email_cookie = $_COOKIE['email'];
+                        <label class="box">Prénom</label>
+                        <input class="box2" type="text" name="prenom" value="<?php
+                        $prenom_cookie = '';
+                        if (isset($_COOKIE['prenom'])) {
+                            $prenom_cookie = $_COOKIE['prenom'];
                         }
-                        echo $email_cookie
-                        ?> oninput="checkEmail(email)"/>
+                        echo $prenom_cookie
+                        ?>" onblur="checkLastName(prenom)">
+
                         <p class="error-message"><?php
-                            if (isset($error_email)) {
-                                echo $error_email;
+                            if (isset($error_prenom)) {
+                                echo $error_prenom;
                             }
                             ?></p>
 
-                        <label class="box">Date de naissance : </label>
-
-                        <input class="box2" type="date" name="dateNaissance" value="" <?php
+                        <label class="box">Date de naissance</label>
+                        <input class="box2" type="date" id="date" name="dateNaissance" value="<?php
                         $date_cookie = '';
                         if (isset($_COOKIE['dateNaissance'])) {
                             $date_cookie = $_COOKIE['dateNaissance'];
                         }
                         echo $date_cookie
-                        ?> onblur="calculateAgeAndCheck()"/>
+                        ?> "onblur="calculateAgeAndCheck()">
+
                         <p class="error-message"><?php
                             if (isset($error_dateNaissance)) {
                                 echo $error_dateNaissance;
                             }
                             ?></p>
 
-                        <label class="box"> Créez votre mot de passe : </label>
-
-                        <input class="box2" id="password1" type="text" name="password" value=""<?php
-                        $password1_cookie = '';
-                        if (isset($_COOKIE['password1'])) {
-                            $password1_cookie = $_COOKIE['password1'];
+                        <label class="box">Email</label>
+                        <input class="box2" id="email1" type="text" name="email" value="<?php
+                        $email1_cookie = '';
+                        if (isset($_COOKIE['email1'])) {
+                            $email1_cookie = $_COOKIE['email1'];
                         }
-                        echo $passwoed1_cookie
-                        ?>oninput="checkpassword()"/>
+                        echo $email1_cookie
+                        ?>">
 
                         <p class="error-message"><?php
-                            if (isset($error_password1)) {
-                                echo $error_password1;
-                            }
-                            ?></p> 
-
-                        <label class="box">Confirmez le mot de passe : </label>
-
-                        <input class="box2" id="password2"type="text" name="passwordconfirmation" value=""<?php
-                        $password2_cookie = '';
-                        if (isset($_COOKIE['password2'])) {
-                            $password2_cookie = $_COOKIE['password2'];
-                        }
-                        echo $password2_cookie
-                        ?>oninput="checkpassword()"/>
-                        <p class="error-message"><?php
-                            if (isset($error_password2)) {
-                                echo $error_password2;
+                            if (isset($error_email1)) {
+                                echo $error_email1;
                             }
                             ?></p>
-                    </div>
 
+                        <label class="box">Confirmez votre email</label>
+                        <input class="box2" id="email2" type="text" name="emailConfirmation" onblur="checkEmailConfirmation()" value="<?php
+                        $email2_cookie = '';
+                        if (isset($_COOKIE['email2'])) {
+                            $email2_cookie = $_COOKIE['email2'];
+                        }
+                        echo $email2_cookie
+                        ?>">
 
+                        <p class="error-message"><?php
+                            if (isset($error_email2)) {
+                                echo $error_email2;
+                            }
+                            ?></p>
+                        
+                        <label class="box">Entrez votre mot de passe</label>
+                        <input class="box2" id="mdp" type="text" name="mdp" value="<?php
+                        $mdp_cookie = '';
+                        if (isset($_COOKIE['mdp'])) {
+                            $mdp_cookie = $_COOKIE['mdp'];
+                        }
+                        echo $mdp_cookie
+                        ?>">
 
-                    <p>J'accepte que mes donées soient récoltées: </p>
+                        <p class="error-message"><?php
+                            if (isset($error_mdp)) {
+                                echo $error_mdp;
+                            }
+                            ?></p>
 
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"> 
-                    <label for="vehicle1"> Oui </label><br>
-
-
-
-                    <div id="spe">
-                        <input type="submit" value="Enregistrer" class="sub" style="padding-left:20px;padding-right:20px;padding-bottom:5px;"/>
+                        <div id="spe">
+                            <input type="submit" value="Enregistrer" class="sub" style="padding-left:20px;padding-right:20px;padding-bottom:5px;">
+                        </div>
                     </div>
                 </form>
+
             </fieldset>
 
 
@@ -160,17 +143,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                 <div class="column">
                     <h1>Contactez nous:</h1>
-                    <p>06 66 66 66 66</p>
+                    <p>07 77 77 77 77</p>
                     <p>quelquechose@gmail.com</p>
                 </div>
                 <div class="column">
                     <h1>Réseaux Sociaux:</h1>
                     <p>Instagram: @Tony_nora</p>
                     <p>Facebook: à rajouter</p>
-                </div>            
+                </div>
 
             </div>
-
         </main>
     </body>
 </html>
