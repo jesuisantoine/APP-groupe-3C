@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date = $_POST['date'];
     $lieu = $_POST['lieu'];
     $heure = $_POST['heure'];
+    
     $description = $_POST['description'];
     $image_gradin = $_FILES['image_gradin']['name'];
     $bruit_gradin = $_POST['bruit_gradin'];
@@ -57,15 +58,15 @@ $db = null;
 <body>
 
     <div class="mainPage">
-        <div class="navbar" id="navi">
-            <img src="Images/STM.png" alt="STM" align="left" />
-            <a href="index.php">Accueil</a>
-            <a href="aboutus.html">L'équipe</a>
-            <a href="Page_Event.php" class="active">Evenements</a>
-            <a href="shop.html">Boutique</a>
-            <a href="login.html" class="login">Connexion/Inscription</a>
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
-        </div>
+    <div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
+                <img src="Images/STM.png" alt="STM" align="left" />
+                <a href="index.php">Accueil</a>
+                <a href="aboutus.html">L'équipe</a>
+                <a class="active" href="Page_Event.php">Évènements</a>
+                <a href="shop.html">Boutique</a>
+                <a href="login.html" class="login">Connexion/Inscription</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
+            </div>
         <div style="padding: 30px;"></div>
 
         <h1>Create Event</h1>
@@ -102,4 +103,3 @@ $db = null;
 </body>
 
 </html>
-    

@@ -8,13 +8,11 @@ if ($db === false) {
 }
 
 // Récupération des données depuis la table Events
-$query = "SELECT * FROM Events";
+$query = "SELECT * FROM Events ORDER BY date DESC";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,69 +22,85 @@ $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="Stylesheet.css">
     <title>EVENTO</title>
 
-    <style>
-        #addEventContainer {
-        text-align: center;
-    }
-    </style>
-    
+   
+
 </head>
 <body>
 
+<div class="mainPage">
+<div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
+                <img src="Images/STM.png" alt="STM" align="left" />
+                <a href="index.php">Accueil</a>
+                <a href="aboutus.html">L'équipe</a>
+                <a class="active"href="Page_Event.php">Évènements</a>
+                <a href="shop.html">Boutique</a>
+                <a href="login.html" class="login">Connexion/Inscription</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
+            </div>
+    <div style="padding: 30px;"></div>
 
-
-    <div class="mainPage">
-           <div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
-            <img src="Images/STM.png" alt="STM" align="left" />
-            <a href="index.php">Acuueil</a>
-            <a href="aboutus.html">L'équipe</a>
-            <a href="Page_Event.php" class="active">Evenements</a>
-            <a href="shop.html">Boutique</a>
-            <a href="login.html" class="login">Connexion/Inscription</a>
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
-        </div>
-        <div style="padding: 30px;">
-            
-        </div>
-      <h1></h1>  
-      <h1> </h1>   
-
-        <a href="create_event.php">
-        <div id="addEventContainer">
-
-            <button id="AddEvent">Add Event</button>
-        </div>
-        </a>
-        
-        <div class="content">
-            <h1>Sonic Track Masters : Trouve ton billet facilement pour une nouvelle course !</h1>
-
-Voici une liste des differentes courses automobiles auxquelles nous sommes affilies. Cette liste sera mise a jour par les administrateurs afin d'offrir un grand eventail d'evenements automobile pour vous satisfaire!
-        </div>
-
-        
-
-    <a href="event_spec.php" class="eventDiv">
-        <img src="Images/F1 Background Picture.png" alt="Event1Pic" class="eventImage"/>
-        <h2>Autriche</h2>
-        <p>17/02/2070</p>
-        <p>Vers le bout du chemin un peu sur la droite et la caye t arrive</p>
+    <a href="create_event.php" style="text-decoration: none;">
+    <button id="AddEvent">Add Event</button>
     </a>
 
-    <div id="eventsContainer"></div>
 
-    <div class="footer"> <!-- Le footer est divisé en colonnes pour mieux répartir le contenu -->
+    <h1>Sonic Track Masters : Trouve ton billet facilement pour une nouvelle course !</h1>
+
+    <div id="eventsContainer">
+    <?php foreach ($events as $event): ?>
+        <a href="event_spec.php?id=<?php echo $event['id_events']; ?>" class="eventDiv">
+            <img src="Images/<?php echo $event['image_gradin']; ?>" alt="<?php echo $event['nom']; ?>" class="eventImage"/>
+            <h2><?php echo $event['nom']; ?></h2>
+            <p><?php echo $event['date']; ?></p>
+            <p><?php echo $event['lieu']; ?></p>
+        </a>
+    <?php endforeach; ?>
+    </div>
+    <button id="loadMore">Charger plus</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentIndex = 0;
+        const eventsPerPage = 5;
+        const events = document.querySelectorAll('.eventDiv');
+        const totalEvents = events.length;
+        const loadMoreButton = document.getElementById('loadMore');
+
+        function showMoreEvents() {
+            const endIndex = currentIndex + eventsPerPage;
+            for (let i = currentIndex; i < endIndex && i < totalEvents; i++) {
+                events[i].style.display = 'block';
+            }
+            currentIndex += eventsPerPage;
+            if (currentIndex >= totalEvents) {
+                loadMoreButton.style.display = 'none'; // Cacher le bouton s'il n'y a plus d'événements à afficher
+            }
+        }
+
+        loadMoreButton.addEventListener('click', showMoreEvents);
+
+        // Afficher initialement les premiers événements
+        showMoreEvents();
+    });
+</script>
+
+
+
+    <div class="footer">    
+        <!-- Le footer est divisé en colonnes pour mieux répartir le contenu -->
         <div class="column">
             <h1>Contactez nous:</h1>
             <p>06 66 66 66 66</p>
             <p>quelquechose@gmail.com</p>
-        </div>  
+        </div>
         <div class="column">
             <h1>Réseaux Sociaux:</h1>
             <p>Instagram: @Tony_nora</p>
             <p>Facebook: à rajouter</p>
-        </div>      
+        </div>
+    </div>
+
     <script src="script.js"></script>
+</div>
 
 </body>
 </html>
