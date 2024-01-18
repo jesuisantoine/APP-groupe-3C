@@ -76,6 +76,23 @@ nav a:hover {
     }
 
 }
+.barre_recherhce {
+    margin: 15px ;
+    cursor: pointer;
+    color: white ; 
+    border-radius: 5px;
+    width: 400px;
+    height: 50px;
+}
+.boutton_recherche{
+    margin-left: 10px ;
+    cursor: pointer;
+    color: white ; 
+    border-radius: 5px;
+    width: 150px;
+    height: 35px;
+    
+}
 
 
 
