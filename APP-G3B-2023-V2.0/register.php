@@ -15,6 +15,10 @@
             <a href="aboutus.php">L'équipe</a>
             <a href="events.php">Evenements</a>
             <a href="shop.php">Boutique</a>
+            <form class="barre_recherhce" action="/search" method="GET">
+                    <input type="text" placeholder="mot clé..." name="search">
+                    <button class="boutton_recherche" type="submit">Rechercher</button>
+                </form>
             <a href="login.php" class="login active">Connexion/Inscription</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
         </div>
