@@ -16,7 +16,7 @@
                 <img src="Images/STM.png" alt="STM" align="left" />
                 <a href="index.html">Accueil</a>
                 <a href="aboutus.html">À propos de nous</a>
-                <a href="events.html">Evenements</a>
+                <a href="events.html">Événements</a>
                 <a href="boutique.php" class="active">Boutique</a>
                 <a href="login.html" class="login">Connexion/Inscription</a>
                 <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
