@@ -7,7 +7,7 @@
 
         <div class="login-box">
             <h2>Se connecter</h2>
-            <form>
+            <form action="traitement.php" method="post">
                 <div class="user-box">
                     <input type="text" name="" required="">
                     <label>email</label>
