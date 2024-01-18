@@ -716,8 +716,8 @@ button:hover {
     font-size: 24px;
     color: #1d99ce; /* Couleur du titre */
     font-weight: bold;
-    margin-bottom: 20px; /* Espace sous le titre */
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .question {
