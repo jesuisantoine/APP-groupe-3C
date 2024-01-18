@@ -13,6 +13,7 @@ body {  /* Uniquement la police et taille des textes ici*/
     margin: 0;
     font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 
 
@@ -117,41 +118,34 @@ body {  /* Uniquement la police et taille des textes ici*/
     max-width: 70%;
     margin-left:15%;
 }
-.divider {
-    background-color: #333;
-    min-height:140px;
-    width:100%;
+
+
+.textOnImage {
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
-.shopDiv {
-    display:flex;
-    flex-direction: row;
+.textOnImage .btn { /*Ceci est un enfer juste pour un bouton sur une image -_- */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d99ce;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.doubleDiv {
-    color: #333;
-    max-width:50%;
-}
-
-.doubleDiv button {
-  border-radius: 25px;
-  background-color: #333;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border: 2px solid #333;
-}
-
-.doubleDiv button:hover {
-  background-color: whitesmoke;
-  color: #333;
+.textOnImage .centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .header { 
@@ -163,34 +157,50 @@ body {  /* Uniquement la police et taille des textes ici*/
 .content {
     padding: 16px 0px 32px 16px;
     background-color: white;
-}
-
-.stuff  {
-    padding-left:10%;
-    padding-right:10%;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 60px;
+    text-decoration: none;
+    
 }
 
 .eventDiv {
     width:85%;
     margin:auto;
+    height: auto;
+    max-height: 350px;
+    overflow: hidden;
     background-color:#1d99ce;
-    background-image: linear-gradient(to bottom, #1d99ce,#146e94); /*dégradé de bleu à bleu plus foncé*/
-    padding: 30px;
+    background-image: linear-gradient(to bottom, #1d99ce,#146e94);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
     text-align: left;
     border-radius: 25px;
-	 color:white;
+     color:white;
+    display: block;
+    text-decoration: none;
+
+    margin-bottom: 20px;
 }
 
+.eventDiv h2{
+    margin-top: 10px;
+}
+.eventDiv p {
+    margin-bottom: 20px;
+    padding-top: 0px;
+}
 .eventImage {
     float:right;
     height:210px;
     width:100%;
     max-width: 400px;
     border-radius: 25px;
+    margin-bottom: 20px;
 }
+
+.des_base{
+    text-decoration:none;
+}
+
 
 @media screen and (max-width: 1100px) { /* change la disposition des events quand l'écran est plus petit */
     .eventDiv {
@@ -211,7 +221,7 @@ body {  /* Uniquement la police et taille des textes ici*/
 .column {
     padding-left:80px; /* à changer pour faire du responsive */
     padding-right:80px;
-    color:white;
+    color:lightgray;
 }
 
 .imgfooter {
@@ -227,7 +237,7 @@ body {  /* Uniquement la police et taille des textes ici*/
 .TextDiv { /*desigh en bleu pout les texts */
     width:85%;
     margin:auto;
-    background-color:whitesmoke;
+    background-color:linear-gradient(to bottom, whitesmoke 10%, #1d99ce 100%);
     background-image: linear-gradient(to bottom, #1d99ce,#146e94); /*dégradé de bleu à bleu plus foncé*/
     padding: 30px;
     text-align: left;
@@ -240,7 +250,7 @@ body {  /* Uniquement la police et taille des textes ici*/
 .TextDiv1 { /*desigh en gris pout les texts */
     width:85%;
     margin:auto;
-    background-color:whitesmoke;
+    background-color:linear-gradient(to bottom, whitesmoke 10%, #1d99ce 100%);
     background-image: linear-gradient(to bottom,lightgray,grey); /*dégradé de gris à gris plus foncé*/
     padding: 30px;
     text-align: left;
@@ -330,9 +340,6 @@ img { /*logo */
   display: table;
 }
 
-.oplogin{
-    
-}
 
 
 
@@ -437,12 +444,14 @@ img { /*logo */
 
 /* Events */
 
+
 .page{
-    background-color:#EEEFF1;
-    padding:16px;
+    background-color:#efefef;
+    margin-top: 200px;
     padding-left: 200px;
     padding-right:200px;
     margin:0px;
+    text-decoration:none;
 }
 
 .img_evn img{
@@ -485,6 +494,7 @@ fieldset{
     border-radius: 5px;
     padding:30px;
     color:#1d99ce;
+    margin-top: 40px;
 }
 
 .niveau_sonore{
@@ -511,11 +521,64 @@ fieldset{
     font-size:16px;
 }
 
-.reserver{
-    display:flex;
-    align-items: center;
+.legend {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 
+.image-legend-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.gradin-image {
+    max-width: 50%; 
+    height: auto; 
+}
+
+.legend {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid #000000;
+}
+
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.réserver {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 20px; 
+}
 .br_event{
     content: "";
     margin: 2em;
@@ -549,85 +612,90 @@ fieldset{
     color:white;
 }
 
-/*css alice */
-body {
-    margin: 0;
-    font-family: "Montserrat", sans-serif;
-    background-color: aliceblue;
-}
 
-.titre_gene {
+button#AddEvent {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-top : 150px;
+    margin: 0 auto; 
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     text-align: center;
-    padding: 2% 0;
-    font-size: 40px;
-    color: #0574A3;
-}
-
-.product-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.case {
-    width: 30%;
-    max-width: 300px;
-    margin: 20px;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #fff;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.case:hover {
-    transform: scale(1.05);
-}
-
-.img_casque {
-    max-width: 100%;
-    height: auto;
-
-}
-
-.case h2 {
-    text-align: center;
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.case p.price {
-    text-align: center;
-    font-size: 1.1em;
-    color: #0574A3;
-    margin: 5px 0;
-}
-
-.case label {
     display: block;
-    margin: 10px 0 5px;
-    font-size: 0.9em;
+
+
 }
 
-.case select {
+button#AddEvent:hover {
+    background-color: #555;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Stylesheet.css /
+
+/ General styling for form elements */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     box-sizing: border-box;
 }
 
-.case button {
-    background-color: #0574A3;
-    color: white;
-    border: none;
-    padding: 10px;
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment-list {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+textarea {
     width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.btn_comment {
+    padding: 10px 20px;
+    background-color: #1d99ce;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.case button:hover {
-    background-color: #035C85;
+.comment {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: smaller;
+}
+
+.comment p {
+    margin: 0;
 }
