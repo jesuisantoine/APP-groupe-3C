@@ -16,9 +16,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div class="navbar" id="navi"> <!-- Barre qui reste collée en haut de l'écran-->
             <img src="Images/STM.png" alt="STM" align="left" />
             <a href="index.html">Accueil</a>
-            <a href="aboutus.html">L'équipe</a>
-            <a href="events.html">Evenements</a>
-            <a href="shop.html">Boutique</a>
+            <a href="aboutus.html">À propos de nous</a>
+            <a href="events.html">Événements</a>
+            <a href="boutique.php">Boutique</a>
             <a href="login.html" class="login active">Connexion/Inscription</a>
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNavbar()">&#9776;</a>
         </div>
