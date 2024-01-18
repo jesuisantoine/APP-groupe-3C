@@ -772,4 +772,144 @@ input[type="checkbox"]:checked + .question + .answer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: justify;
 }
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: whitesmoke;
+}
 
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, .5);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #1d99ce;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #1d99ce;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #1d99ce;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #1d99ce;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #1d99ce;
+  font-size: 12px;
+}
+
+#civili{
+    font-size: 17px ;
+    color: #1d99ce;
+    font-family: robot ,sans-serif;
+    font-weight: 40 ;
+    overflow: hidden;
+    margin-bottom: 15px;
+  
+}
+
+.civi{
+    font-size: 14px ;
+    color: #1d99ce;
+    font-family: robot ,sans-serif;
+    font-weight: 40 ;
+    padding: 4px 7px ;
+    letter-spacing: 1px ;
+    overflow: hidden;
+    border-color: #1d99ce;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    
+}
+
+.daten{
+    font-size: 14px ;
+    color: #1d99ce;
+    font-family: robot ,sans-serif;
+    font-weight: 40 ;
+}
+
+.connect{
+    text-align: center ;
+    padding: 10px 20px ;
+    color: #1d99ce ;
+    font-size: 16px ;
+    letter-spacing: 3px ;
+    overflow: hidden;
+    border-color: #1d99ce;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 7px;
+    transition: all .5s ease;
+}
+.connect:hover {
+    color: white;
+    background-color: #1d99ce;
+}
+
+.loginpage{
+    display: inline-block;
+    color: #1d99ce;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.error-message{
+    color : red;
+    font-size: 10px; 
+    margin-top: 1px;
+}
+
+.regi{
+    display: inline-block;
+    color: #1d99ce;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+}
