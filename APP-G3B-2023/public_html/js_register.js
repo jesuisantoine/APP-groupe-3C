@@ -81,3 +81,7 @@ function checkLastName(name) {//Vérifier le champs prénom
         name.style.color = '#0B0';
     }
 }
+
+function refreshCaptcha() {
+            location.reload();
+}
