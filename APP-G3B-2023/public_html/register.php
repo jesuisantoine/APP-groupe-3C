@@ -4,7 +4,7 @@
         <link href="re_form-css.css" rel="stylesheet" type="text/css"/>
         <script src="re_form_js.js" type="text/javascript"></script>
     </head>
-   
+
     <body>
 
         <div class="login-box">
@@ -62,16 +62,16 @@
 
                 <div class="user-box">
                     <input type="text" name="email" required="" value="<?php
-                    $email1_cookie = '';
-                    if (isset($_COOKIE['email1'])) {
-                        $email1_cookie = $_COOKIE['email1'];
+                    $email_cookie = '';
+                    if (isset($_COOKIE['email'])) {
+                        $email_cookie = $_COOKIE['email'];
                     }
-                    echo $email1_cookie
+                    echo $email_cookie
                     ?>">
 
                     <p class="error-message"><?php
-                        if (isset($error_email1)) {
-                            echo $error_email1;
+                        if (isset($error_email)) {
+                            echo $error_email;
                         }
                         ?></p>
                     <label>Email</label>
@@ -79,7 +79,7 @@
 
                 <div class="user-box">
                     <h1 class="daten">Date de naissance</h1>
-                    <input type="date" name="dateNaissance" required="" <?php
+                    <input type="date" name="dateNaissance" required="" value="<?php
                     $date_cookie = '';
                     if (isset($_COOKIE['dateNaissance'])) {
                         $date_cookie = $_COOKIE['dateNaissance'];
@@ -87,7 +87,8 @@
                     echo $date_cookie
                     ?> "onblur="calculateAgeAndCheck()">
 
-                    <p class="error-message"><?php
+                    <p class="error-message">
+                        <?php
                         if (isset($error_dateNaissance)) {
                             echo $error_dateNaissance;
                         }
@@ -96,16 +97,16 @@
 
                 <div class="user-box">
                     <input type="text" name="password" required="" value="<?php
-                    $mdp_cookie = '';
-                    if (isset($_COOKIE['mdp'])) {
-                        $mdp_cookie = $_COOKIE['mdp'];
+                    $password1_cookie = '';
+                    if (isset($_COOKIE['password1'])) {
+                        $password1_cookie = $_COOKIE['password1'];
                     }
-                    echo $mdp_cookie
+                    echo $password1_cookie
                     ?>">
 
                     <p class="error-message"><?php
-                        if (isset($error_mdp)) {
-                            echo $error_mdp;
+                        if (isset($error_password1)) {
+                            echo $error_password1;
                         }
                         ?></p>
                     <label>Mot de passe</label>
@@ -113,25 +114,72 @@
 
                 <div class="user-box">
                     <input type="password" name="passwordconfirmation" required="" value="<?php
-                    $email2_cookie = '';
-                    if (isset($_COOKIE['email2'])) {
-                        $email2_cookie = $_COOKIE['email2'];
+                    $password2_cookie = '';
+                    if (isset($_COOKIE['password2'])) {
+                        $password2_cookie = $_COOKIE['password2'];
                     }
-                    echo $email2_cookie
-                    ?>">
+                    echo $password2_cookie
+                    ?>" onblur="checkpasswordConfirmation()">
 
                     <p class="error-message"><?php
-                        if (isset($error_email2)) {
-                            echo $error_email2;
+                        if (isset($error_password2)) {
+                            echo $error_password2;
                         }
                         ?></p>
                     <label>confirmation</label>
                 </div>
 
+                <div class="captcha-container">
+                    <form action="verify.php" method="POST">
+                        <div class="captcha-image" id="captchaImage">
+                            <?php
+                            session_start();
+
+                            $captcha_text = generateRandomString();
+                            $_SESSION['captcha'] = $captcha_text;
+
+                            header('Content-type: image/png');
+
+                            $width = 240;
+                            $height = 80;
+                            $image = imagecreate($width, $height);
+                            $background_color = imagecolorallocate($image, 255, 255, 255);
+                            $text_color = imagecolorallocate($image, 0, 0, 0);
+
+                            $font = './arial.ttf'; // Ensure you have an appropriate font file
+                            $font_size = 36;
+
+                            imagettftext($image, $font_size, 0, 10, 40, $text_color, $font, $captcha_text);
+
+                            for ($i = 0; $i < 5; $i++) {
+                                imageline($image, rand(0, $width), rand(0, $height), rand(0, $width), rand(0, $height), $text_color);
+                            }
+
+                            ob_start();
+                            imagepng($image);
+                            $image_data = ob_get_contents();
+                            ob_end_clean();
+                            imagedestroy($image);
+
+                            echo '<img src="data:image/png;base64,' . base64_encode($image_data) . '" alt="CAPTCHA">';
+                            ?>
+
+                        </div>
+                        <button type="button" onclick="refreshCaptcha()">Refresh</button>
+                        <input type="text" name="captcha" placeholder="Enter CAPTCHA" required>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
                 <div>
                     <input type="submit" value="créer son compte" class="connect">
                 </div>
+
+
             </form>
+
+            <a href="form_test.php"><button class="loginpage">J'ai déjà un compte</button></a>
+
         </div>
     </body>
 </html>
